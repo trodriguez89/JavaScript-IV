@@ -74,13 +74,13 @@ const teresa = new Person({
 
 })
 // Instructor Objects
-const sean = new Instructor({
-    name: "Sean",
+const joscelyn = new Instructor({
+    name: "Joscelyn",
     location: "Hoth",
-    age: 29,
-    specialty: "CSS",
-    favLanguage: "CSS",
-    catchPhrase: "Everybody gets one"
+    age: "unknown",
+    specialty: "super smash bros",
+    favLanguage: "JavaScript",
+    catchPhrase: "Gotta Catch 'Em All"
 })
 
 const tony = new Instructor({
@@ -134,7 +134,7 @@ const jeremy = new ProjectManager({
 })
 
 console.log(tom.speak());
-console.log(sean.demo("Arrays"));
+console.log(joscelyn.demo("Arrays"));
 console.log(rachel.speak());
 console.log(tony.grade(tina, "C++"));
 tina.listsSubjects();
