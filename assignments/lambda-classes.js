@@ -1,92 +1,91 @@
 // CODE here for your Lambda Classes
-class Person{
-    constructor(atts){
+class Person {
+    constructor(atts) {
         this.name = atts.name;
         this.age = atts.age;
         this.location = atts.location;
     }
-    speak(){
+    speak() {
         return `Hello my name is ${this.name}, I am from ${this.location}.`
     }
 }
 
-class Instructor extends Person{
-    constructor(intsAtts){
+class Instructor extends Person {
+    constructor(intsAtts) {
         super(intsAtts)
         this.specialty = intsAtts.specialty;
         this.favLanguage = intsAtts.favLanguage;
         this.catchPhrase = intsAtts.catchPhrase;
     }
-    demo(subject){
+    demo(subject) {
         return `Today we are learning about ${subject}`
     }
-    grade(student, subject){
+    grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
     }
 }
 
-class Student extends Person{
-    constructor(studentAtts){
+class Student extends Person {
+    constructor(studentAtts) {
         super(studentAtts)
         this.previousBackground = studentAtts.previousBackground;
         this.className = studentAtts.className;
         this.favSubjects = studentAtts.favSubjects;
     }
-    listsSubjects(){ // a method that logs out all of the student's favoriteSubjects one by one
-            this.favSubjects.forEach(function(subjects) {
-              return console.log(subjects);
-            })
-    
+    listsSubjects() { // a method that logs out all of the student's favoriteSubjects one by one
+        this.favSubjects.map(function (subjects) {
+            return console.log(subjects);
+        })
     }
-    PRAssignment(subject){
+    PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`
     }
-    sprintChallenge(subject){
+    sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`
     }
 }
 
-class ProjectManager extends Instructor{
-    constructor(pmAtts){
+class ProjectManager extends Instructor {
+    constructor(pmAtts) {
         super(pmAtts)
         this.gradClassName = pmAtts.gradClassName;
         this.favInstructor = pmAtts.favInstructor;
     }
-     standUp(slackChannel){ // a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+    standUp(slackChannel) { // a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
         return `${this.name} announces to ${slackChannel}, @channel standy times!`
-     }
-    debugsCode(student, subject){
+    }
+    debugsCode(student, subject) {
         return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
 
 //Person Objects
-const tom = new Person ({
+const tom = new Person({
     name: "Thomas",
-    location: "Salinas",
+    location: "The Forest Moon of Endor",
     age: 29,
 
 })
 
-const teresa = new Person ({
+const teresa = new Person({
     name: "Teresa",
-    location: "Salinas",
+    location: "Kashykk",
     age: 25,
-    
+
 })
 // Instructor Objects
-const sean = new Instructor ({
+const sean = new Instructor({
     name: "Sean",
-    location: "Greenfield",
+    location: "Hoth",
     age: 29,
     specialty: "CSS",
     favLanguage: "CSS",
     catchPhrase: "Everybody gets one"
 })
 
-const tony = new Instructor ({
+const tony = new Instructor({
     name: "Tony",
-    location: "Soledad",
+    location: "The Dagoba System",
     age: 66,
     specialty: "JavaScript",
     favLanguage: "JavaScript",
@@ -94,27 +93,27 @@ const tony = new Instructor ({
 })
 
 // Student Objects
-const rachel = new Student ({
+const rachel = new Student({
     name: "Rachel",
-    location: "South Carolina",
+    location: "Yavin",
     age: 21,
     previousBackground: "College Student",
     className: "WEB 25",
     favSubjects: ["HTML", "CSS"]
 })
 
-const tina = new Student ({
+const tina = new Student({
     name: "Tina",
-    location: "Seattle",
+    location: "Tatooine",
     age: 37,
     previousBackground: "Cook",
     className: "WEB 25",
     favSubjects: ["CSS", "JavaScript"]
 })
 // Project Manager Objects
-const alisa = new ProjectManager ({
+const alisa = new ProjectManager({
     name: "Alisa",
-    location: "New York",
+    location: "Millenium Falcon",
     age: 28,
     specialty: "Whatever you need it to be",
     favLanguage: "C++",
@@ -123,9 +122,9 @@ const alisa = new ProjectManager ({
     favInstructor: "Dr. Who"
 })
 
-const jeremy = new ProjectManager ({
+const jeremy = new ProjectManager({
     name: "Jeremy",
-    location: "Alaska",
+    location: "Naboo",
     age: 105,
     specialty: "I'm a floater",
     favLanguage: "Java",
@@ -138,7 +137,7 @@ console.log(tom.speak());
 console.log(sean.demo("Arrays"));
 console.log(rachel.speak());
 console.log(tony.grade(tina, "C++"));
-console.log(rachel.listsSubjects());
+tina.listsSubjects();
 console.log(rachel.sprintChallenge("FlexBox"));
 console.log(jeremy.standUp("Web25 Help"));
 console.log(alisa.debugsCode(tina, "Python"));
